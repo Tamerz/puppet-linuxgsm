@@ -7,7 +7,7 @@ describe 'linuxgsm' do
 
       it { is_expected.to compile }
 
-      describe 'linuxgsm::install' do
+      describe "linuxgsm::install" do
         case os_facts[:os]['family']
         when 'Debian'
           it { is_expected.to contain_package('mailutils') }
@@ -27,6 +27,13 @@ describe 'linuxgsm' do
           it { is_expected.to contain_package('tmux') }
           it { is_expected.to contain_package('libstdc++6') }
           it { is_expected.to contain_package('lib32z1') }
+
+          context 'on amd64' do
+            if os_facts[:architecture] == 'amd64'
+              it { is_expected.to contain_package('lib32gcc1') }
+              it { is_expected.to contain_package('libstdc++6:i386') }
+            end
+          end
         end
       end
     end

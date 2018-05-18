@@ -1,0 +1,21 @@
+---
+linuxgsm::packages:
+  - mailutils
+  - postfix
+  - curl
+  - wget
+  - file
+  - bzip2
+  - gzip
+  - unzip
+  - bsdmainutils
+  - python
+  - util-linux
+  - ca-certificates
+  - binutils
+  - bc
+  - tmux
+  - libstdc++6
+  - lib32z1
+  - lib32gcc1
+  - libstdc++6:i386

@@ -8,6 +8,7 @@
   "dependencies": [
 
   ],
+  "data_provider": "hiera",
   "operatingsystem_support": [
     {
       "operatingsystem": "CentOS",

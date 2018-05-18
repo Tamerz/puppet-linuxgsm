@@ -6,8 +6,8 @@ defaults:
   data_hash: 'yaml_data'
 
 hierarchy:
-  - name: 'Operating System Family'
-    path: '%{facts.os.family}-family.yaml'
+  - name: 'Operating System Family with Architecture'
+    path: '%{facts.os.family}-%{facts.architecture}.yaml'
 
   - name: 'common'
     path: 'common.yaml'
