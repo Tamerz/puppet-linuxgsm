@@ -2,3 +2,4 @@
 linuxgsm::packages:
   - lib32gcc1
   - libstdc++6:i386
+linuxgsm::add_multiarch: true

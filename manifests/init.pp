@@ -7,7 +7,8 @@
 # @example
 #   include linuxgsm
 class linuxgsm (
-  Array[String] $packages
+  Array[String] $packages,
+  Boolean $add_multiarch,
 ) {
 
   contain linuxgsm::install

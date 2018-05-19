@@ -33,6 +33,12 @@ describe 'linuxgsm' do
             if os_facts[:architecture] == 'amd64'
               it { is_expected.to contain_package('lib32gcc1') }
               it { is_expected.to contain_package('libstdc++6:i386') }
+              it {
+                is_expected.to contain_exec('add_multiarch').with(
+                  'command' => '/usr/bin/dpkg --add-architecture i386 && /usr/bin/apt-get update -q',
+                  'unless'  => "/bin/grep 'i386' /var/lib/dpkg/arch",
+                )
+              }
             end
           end
 

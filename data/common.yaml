@@ -10,3 +10,4 @@ linuxgsm::packages:
   - binutils
   - bc
   - tmux
+linuxgsm::add_multiarch: false
