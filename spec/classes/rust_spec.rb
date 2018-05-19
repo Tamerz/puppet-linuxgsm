@@ -14,7 +14,7 @@ describe 'linuxgsm::rust' do
           'ensure' => 'directory',
           'owner'  => 'rustserver',
           'group'  => 'rustserver',
-        )
+        ).that_requires('User[rustserver]')
       }
 
       it {

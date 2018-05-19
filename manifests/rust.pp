@@ -12,9 +12,10 @@ class linuxgsm::rust (
   user { $user: }
 
   file { $install_dir:
-    ensure => directory,
-    owner  => $user,
-    group  => $user,
+    ensure  => directory,
+    owner   => $user,
+    group   => $user,
+    require => User[$user],
   }
 
   exec { 'install_rustserver':
