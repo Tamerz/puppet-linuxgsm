@@ -13,3 +13,5 @@ linuxgsm::packages:
 linuxgsm::add_multiarch: false
 linuxgsm::rust::user: 'rustserver'
 linuxgsm::rust::install_dir: '/opt/rustserver'
+linuxgsm::minecraft::user: 'mcserver'
+linuxgsm::minecraft::install_dir: '/opt/mcserver'

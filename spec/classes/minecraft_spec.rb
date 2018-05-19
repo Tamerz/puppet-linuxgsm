@@ -13,6 +13,29 @@ describe 'linuxgsm::minecraft' do
       when 'RedHat'
         it { is_expected.to contain_package('java-1.8.0-openjdk') }
       end
+
+      it {
+        is_expected.to contain_user('mcserver').with(
+          'ensure' => 'present',
+        )
+      }
+
+      it {
+        is_expected.to contain_file('/opt/mcserver').with(
+          'ensure' => 'directory',
+          'owner'  => 'mcserver',
+          'group'  => 'mcserver',
+        ).that_requires('User[mcserver]')
+      }
+
+      it {
+        is_expected.to contain_exec('install_mcserver').with(
+          'command' => '/usr/bin/wget https://linuxgsm.com/dl/linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh mcserver && ./mcserver ai',
+          'cwd'     => '/opt/mcserver',
+          'creates' => '/opt/mcserver/mcserver',
+          'timeout' => 0,
+        )
+      }
     end
   end
 end
