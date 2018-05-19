@@ -10,10 +10,18 @@ describe 'linuxgsm::rust' do
       it { is_expected.to contain_user('rustserver') }
 
       it {
-        is_expected.to contain_file('/opt/linuxgsm/rust').with(
+        is_expected.to contain_file('/opt/rustserver').with(
           'ensure' => 'directory',
           'owner'  => 'rustserver',
           'group'  => 'rustserver',
+        )
+      }
+
+      it {
+        is_expected.to contain_exec('install_rustserver').with(
+          'command' => '/usr/bin/wget https://linuxgsm.com/dl/linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh rustserver && ./rustserver ai',
+          'cwd'     => '/opt/rustserver',
+          'creates' => '/opt/rustserver/rustserver',
         )
       }
     end

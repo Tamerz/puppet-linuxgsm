@@ -17,4 +17,11 @@ class linuxgsm::rust (
     group  => $user,
   }
 
+  exec { 'install_rustserver':
+    command => '/usr/bin/wget https://linuxgsm.com/dl/linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh rustserver && ./rustserver ai',
+    cwd     => $install_dir,
+    user    => $user,
+    creates => "${install_dir}/rustserver",
+  }
+
 }
