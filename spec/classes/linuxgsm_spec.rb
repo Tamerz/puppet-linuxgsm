@@ -8,7 +8,6 @@ describe 'linuxgsm' do
       it { is_expected.to compile }
 
       describe 'linuxgsm::install' do
-
         it { is_expected.to contain_package('postfix') }
         it { is_expected.to contain_package('curl') }
         it { is_expected.to contain_package('wget') }
