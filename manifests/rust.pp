@@ -25,6 +25,7 @@ class linuxgsm::rust (
     cwd     => $install_dir,
     user    => $user,
     creates => "${install_dir}/rustserver",
+    timeout => 0,
   }
 
 }

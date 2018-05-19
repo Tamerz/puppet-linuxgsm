@@ -26,6 +26,7 @@ describe 'linuxgsm::rust' do
           'command' => '/usr/bin/wget https://linuxgsm.com/dl/linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgsm.sh rustserver && ./rustserver ai',
           'cwd'     => '/opt/rustserver',
           'creates' => '/opt/rustserver/rustserver',
+          'timeout' => 0,
         )
       }
     end
