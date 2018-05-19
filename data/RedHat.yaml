@@ -1,0 +1,5 @@
+---
+linuxgsm::packages:
+  - mailx
+  - libstdc++
+  - zlib-devel

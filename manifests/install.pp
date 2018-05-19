@@ -8,7 +8,9 @@
 #   include linuxgsm::install
 class linuxgsm::install inherits linuxgsm {
 
-  package { $linuxgsm::packages:
+  $packages = lookup('linuxgsm::packages', {merge => 'unique'})
+
+  package { $packages:
     ensure => present,
   }
 

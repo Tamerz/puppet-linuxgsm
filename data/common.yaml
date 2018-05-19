@@ -1,2 +1,12 @@
 ---
-linuxgsm::packages: []
+linuxgsm::packages:
+  - postfix
+  - curl
+  - wget
+  - bzip2
+  - gzip
+  - unzip
+  - python
+  - binutils
+  - bc
+  - tmux
