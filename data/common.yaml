@@ -1,5 +1,4 @@
 ---
-linuxgsm::install_dir: '/opt/linuxgsm'
 linuxgsm::packages:
   - postfix
   - curl
