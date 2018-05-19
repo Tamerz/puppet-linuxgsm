@@ -7,18 +7,19 @@ describe 'linuxgsm' do
 
       it { is_expected.to compile }
 
-      it { is_expected.to contain_package('postfix') }
-      it { is_expected.to contain_package('curl') }
-      it { is_expected.to contain_package('wget') }
-      it { is_expected.to contain_package('bzip2') }
-      it { is_expected.to contain_package('gzip') }
-      it { is_expected.to contain_package('unzip') }
-      it { is_expected.to contain_package('python') }
-      it { is_expected.to contain_package('binutils') }
-      it { is_expected.to contain_package('bc') }
-      it { is_expected.to contain_package('tmux') }
-
       describe 'linuxgsm::install' do
+
+        it { is_expected.to contain_package('postfix') }
+        it { is_expected.to contain_package('curl') }
+        it { is_expected.to contain_package('wget') }
+        it { is_expected.to contain_package('bzip2') }
+        it { is_expected.to contain_package('gzip') }
+        it { is_expected.to contain_package('unzip') }
+        it { is_expected.to contain_package('python') }
+        it { is_expected.to contain_package('binutils') }
+        it { is_expected.to contain_package('bc') }
+        it { is_expected.to contain_package('tmux') }
+
         case os_facts[:os]['family']
         when 'Debian'
           it { is_expected.to contain_package('mailutils') }
@@ -29,7 +30,7 @@ describe 'linuxgsm' do
           it { is_expected.to contain_package('libstdc++6') }
           it { is_expected.to contain_package('lib32z1') }
 
-          context 'on amd64' do
+          context 'on Debian family amd64' do
             if os_facts[:architecture] == 'amd64'
               it { is_expected.to contain_package('lib32gcc1') }
               it { is_expected.to contain_package('libstdc++6:i386') }
@@ -41,7 +42,7 @@ describe 'linuxgsm' do
           it { is_expected.to contain_package('libstdc++') }
           it { is_expected.to contain_package('zlib-devel') }
 
-          context 'on x86_64' do
+          context 'on RedHat family x86_64' do
             if os_facts[:architecture] == 'x86_64'
               it { is_expected.to contain_package('glibc.i686') }
               it { is_expected.to contain_package('libstdc++.i686') }
