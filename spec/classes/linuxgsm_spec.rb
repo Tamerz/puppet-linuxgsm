@@ -47,6 +47,12 @@ describe 'linuxgsm' do
               it { is_expected.to contain_package('libstdc++.i686') }
             end
           end
+
+          context 'on Fedora' do
+            if os_facts[:os]['name'] == 'Fedora'
+              it { is_expected.to contain_package('file') }
+            end
+          end
         end
       end
     end

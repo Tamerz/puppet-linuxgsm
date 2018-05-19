@@ -1,0 +1,3 @@
+---
+linuxgsm::packages:
+  - file
