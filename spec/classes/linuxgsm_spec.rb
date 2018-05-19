@@ -13,6 +13,14 @@ describe 'linuxgsm' do
         )
       }
 
+      it {
+        is_expected.to contain_exec('download_script').with(
+          'command' => '/usr/bin/wget https://linuxgsm.com/dl/linuxgsm.sh',
+          'cwd'     => '/opt/linuxgsm',
+          'creates' => '/opt/linuxgsm/linuxgsm.sh',
+        ).that_requires('Package[wget]')
+      }
+
       describe 'linuxgsm::install' do
         it { is_expected.to contain_package('postfix') }
         it { is_expected.to contain_package('curl') }

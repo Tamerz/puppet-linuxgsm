@@ -26,4 +26,11 @@ class linuxgsm::install inherits linuxgsm {
     ensure => present,
   }
 
+  exec { 'download_script':
+    command => '/usr/bin/wget https://linuxgsm.com/dl/linuxgsm.sh',
+    cwd     => $install_dir,
+    creates => "${install_dir}/linuxgsm.sh",
+    require => Package['wget'],
+  }
+
 }
