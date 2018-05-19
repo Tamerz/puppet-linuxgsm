@@ -10,10 +10,6 @@ class linuxgsm::install inherits linuxgsm {
 
   $packages = lookup('linuxgsm::packages', {merge => 'unique'})
 
-  file { $install_dir:
-    ensure => directory,
-  }
-
   if $linuxgsm::add_multiarch {
     exec { 'add_multiarch':
       command => '/usr/bin/dpkg --add-architecture i386 && /usr/bin/apt-get update -q',
@@ -24,13 +20,6 @@ class linuxgsm::install inherits linuxgsm {
 
   package { $packages:
     ensure => present,
-  }
-
-  exec { 'download_script':
-    command => '/usr/bin/wget https://linuxgsm.com/dl/linuxgsm.sh',
-    cwd     => $install_dir,
-    creates => "${install_dir}/linuxgsm.sh",
-    require => Package['wget'],
   }
 
 }
