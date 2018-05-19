@@ -9,7 +9,9 @@ class linuxgsm::rust (
   String $install_dir,
 ) {
 
-  user { $user: }
+  user { $user:
+    ensure => present,
+  }
 
   file { $install_dir:
     ensure  => directory,

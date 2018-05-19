@@ -11,5 +11,5 @@ linuxgsm::packages:
   - bc
   - tmux
 linuxgsm::add_multiarch: false
-linuxgsm::rust::user: rustserver
+linuxgsm::rust::user: 'rustserver'
 linuxgsm::rust::install_dir: '/opt/rustserver'
