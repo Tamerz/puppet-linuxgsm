@@ -7,3 +7,4 @@ linuxgsm::packages:
   - ca-certificates
   - libstdc++6
   - lib32z1
+linuxgsm::minecraft::java_package: default-jdk
