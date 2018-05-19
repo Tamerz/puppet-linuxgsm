@@ -11,3 +11,4 @@ linuxgsm::packages:
   - bc
   - tmux
 linuxgsm::add_multiarch: false
+linuxgsm::rust::user: rustserver
