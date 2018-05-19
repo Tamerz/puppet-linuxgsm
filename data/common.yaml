@@ -1,4 +1,5 @@
 ---
+linuxgsm::install_dir: '/opt/linuxgsm'
 linuxgsm::packages:
   - postfix
   - curl
@@ -12,3 +13,4 @@ linuxgsm::packages:
   - tmux
 linuxgsm::add_multiarch: false
 linuxgsm::rust::user: rustserver
+linuxgsm::rust::install_dir: '/opt/linuxgsm/rust'

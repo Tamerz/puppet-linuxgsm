@@ -8,6 +8,14 @@ describe 'linuxgsm::rust' do
       it { is_expected.to compile.with_all_deps }
 
       it { is_expected.to contain_user('rustserver') }
+
+      it {
+        is_expected.to contain_file('/opt/linuxgsm/rust').with(
+          'ensure' => 'directory',
+          'owner'  => 'rustserver',
+          'group'  => 'rustserver',
+        )
+      }
     end
   end
 end

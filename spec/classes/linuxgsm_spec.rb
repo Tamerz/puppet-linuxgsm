@@ -5,7 +5,13 @@ describe 'linuxgsm' do
     context "on #{os}" do
       let(:facts) { os_facts }
 
-      it { is_expected.to compile }
+      it { is_expected.to compile.with_all_deps }
+
+      it {
+        is_expected.to contain_file('/opt/linuxgsm').with(
+          'ensure' => 'directory',
+        )
+      }
 
       describe 'linuxgsm::install' do
         it { is_expected.to contain_package('postfix') }
