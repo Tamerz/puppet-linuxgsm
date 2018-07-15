@@ -9,11 +9,13 @@ describe 'linuxgsm::rust' do
 
       case os_facts[:os]['family']
       when 'RedHat'
+        it { is_expected.to contain_package('libstdc++') }
+        it { is_expected.to contain_package('zlib-devel') }
         it {
           is_expected.to contain_firewalld_port('rustserver').with(
             'ensure'   => 'present',
             'zone'     => 'public',
-            'port'     => 28015,
+            'port'     => 28_015,
             'protocol' => 'udp',
           )
         }

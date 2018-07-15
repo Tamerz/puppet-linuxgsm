@@ -8,10 +8,15 @@ class linuxgsm::rust (
   String $user,
   String $install_dir,
   Integer $port,
+  Array[String] $packages,
 ) inherits linuxgsm {
 
   user { $user:
     ensure => present,
+  }
+
+  package { $packages:
+    ensure => installed,
   }
 
   file { $install_dir:

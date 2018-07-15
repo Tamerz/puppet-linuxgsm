@@ -1,20 +1,24 @@
 ---
 linuxgsm::packages:
-  - postfix
-  - curl
-  - wget
-  - bzip2
-  - gzip
-  - unzip
-  - python
-  - binutils
   - bc
+  - binutils
+  - bzip2
+  - curl
+  - gzip
+  - postfix
+  - python
   - tmux
+  - unzip
+  - wget
 linuxgsm::add_multiarch: false
 linuxgsm::use_firewalld: false
 linuxgsm::rust::user: 'rustserver'
 linuxgsm::rust::install_dir: '/opt/rustserver'
 linuxgsm::rust::port: 28015
+linuxgsm::rust::packages: []
 linuxgsm::minecraft::user: 'mcserver'
 linuxgsm::minecraft::install_dir: '/opt/mcserver'
 linuxgsm::minecraft::port: 25565
+linuxgsm::tf2::user: 'tf2server'
+linuxgsm::tf2::install_dir: '/opt/tf2server'
+linuxgsm::tf2::port: 27015

@@ -44,8 +44,6 @@ describe 'linuxgsm' do
 
         when 'RedHat'
           it { is_expected.to contain_package('mailx') }
-          it { is_expected.to contain_package('libstdc++') }
-          it { is_expected.to contain_package('zlib-devel') }
 
           context 'on RedHat family x86_64' do
             if os_facts[:architecture] == 'x86_64'
