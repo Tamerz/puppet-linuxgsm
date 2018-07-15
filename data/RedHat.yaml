@@ -3,4 +3,5 @@ linuxgsm::packages:
   - mailx
   - libstdc++
   - zlib-devel
+linuxgsm::use_firewalld: true
 linuxgsm::minecraft::java_package: java-1.8.0-openjdk

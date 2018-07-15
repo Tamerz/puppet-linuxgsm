@@ -8,7 +8,8 @@ class linuxgsm::minecraft (
   String $java_package,
   String $install_dir,
   String $user,
-) {
+  Integer $port,
+) inherits linuxgsm {
 
   package { $java_package: }
 
@@ -29,6 +30,15 @@ class linuxgsm::minecraft (
     user    => $user,
     creates => "${install_dir}/mcserver",
     timeout => 0,
+  }
+
+  if $linuxgsm::use_firewalld {
+    firewalld_port { 'minecraft':
+      ensure   => present,
+      zone     => 'public',
+      port     => $port,
+      protocol => 'tcp',
+    }
   }
 
 }

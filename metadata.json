@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "source": "",
   "dependencies": [
-
+	  { "name":"crayfishx/firewalld","version_requirements":">= 3.4.0 < 4.0.0" }
   ],
   "data_provider": "hiera",
   "operatingsystem_support": [

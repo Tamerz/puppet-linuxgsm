@@ -11,7 +11,9 @@ linuxgsm::packages:
   - bc
   - tmux
 linuxgsm::add_multiarch: false
+linuxgsm::use_firewalld: false
 linuxgsm::rust::user: 'rustserver'
 linuxgsm::rust::install_dir: '/opt/rustserver'
 linuxgsm::minecraft::user: 'mcserver'
 linuxgsm::minecraft::install_dir: '/opt/mcserver'
+linuxgsm::minecraft::port: 25565

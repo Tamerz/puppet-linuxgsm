@@ -12,6 +12,15 @@ describe 'linuxgsm::minecraft' do
         it { is_expected.to contain_package('default-jdk') }
       when 'RedHat'
         it { is_expected.to contain_package('java-1.8.0-openjdk') }
+
+        it {
+          is_expected.to contain_firewalld_port('minecraft').with(
+            'ensure'   => 'present',
+            'zone'     => 'public',
+            'port'     => '25565',
+            'protocol' => 'tcp',
+          )
+        }
       end
 
       it {
