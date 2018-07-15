@@ -17,7 +17,7 @@ describe 'linuxgsm::minecraft' do
           is_expected.to contain_firewalld_port('minecraft').with(
             'ensure'   => 'present',
             'zone'     => 'public',
-            'port'     => '25565',
+            'port'     => 25565,
             'protocol' => 'tcp',
           )
         }

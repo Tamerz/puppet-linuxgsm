@@ -7,6 +7,18 @@ describe 'linuxgsm::rust' do
 
       it { is_expected.to compile.with_all_deps }
 
+      case os_facts[:os]['family']
+      when 'RedHat'
+        it {
+          is_expected.to contain_firewalld_port('rustserver').with(
+            'ensure'   => 'present',
+            'zone'     => 'public',
+            'port'     => 28015,
+            'protocol' => 'udp',
+          )
+        }
+      end
+
       it {
         is_expected.to contain_user('rustserver').with(
           'ensure' => 'present',

@@ -7,7 +7,8 @@
 class linuxgsm::rust (
   String $user,
   String $install_dir,
-) {
+  Integer $port,
+) inherits linuxgsm {
 
   user { $user:
     ensure => present,
@@ -26,6 +27,15 @@ class linuxgsm::rust (
     user    => $user,
     creates => "${install_dir}/rustserver",
     timeout => 0,
+  }
+
+  if $linuxgsm::use_firewalld {
+    firewalld_port { 'rustserver':
+      ensure   => present,
+      zone     => 'public',
+      port     => $port,
+      protocol => 'udp',
+    }
   }
 
 }
