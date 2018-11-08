@@ -10,6 +10,7 @@ linuxgsm::packages:
   - tmux
   - unzip
   - wget
+  - jq
 linuxgsm::add_multiarch: false
 linuxgsm::rust::user: 'rustserver'
 linuxgsm::rust::install_dir: '/opt/rustserver'

@@ -17,6 +17,7 @@ describe 'linuxgsm' do
         it { is_expected.to contain_package('python') }
         it { is_expected.to contain_package('binutils') }
         it { is_expected.to contain_package('bc') }
+        it { is_expected.to contain_package('jq') }
         it { is_expected.to contain_package('tmux') }
 
         case os_facts[:os]['family']
