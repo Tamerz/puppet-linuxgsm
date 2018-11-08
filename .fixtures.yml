@@ -3,5 +3,5 @@
 ---
 fixtures:
   forge_modules:
-    stdlib: "puppetlabs/stdlib"
-    firewalld: "crayfishx/firewalld"
+    # stdlib: "puppetlabs/stdlib"
+    # firewalld: "crayfishx/firewalld"

@@ -9,7 +9,6 @@
 class linuxgsm (
   Array[String] $packages,
   Boolean $add_multiarch,
-  Boolean $use_firewalld,
 ) {
 
   contain linuxgsm::install

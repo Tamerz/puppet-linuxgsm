@@ -11,7 +11,6 @@ linuxgsm::packages:
   - unzip
   - wget
 linuxgsm::add_multiarch: false
-linuxgsm::use_firewalld: false
 linuxgsm::rust::user: 'rustserver'
 linuxgsm::rust::install_dir: '/opt/rustserver'
 linuxgsm::rust::port: 28015

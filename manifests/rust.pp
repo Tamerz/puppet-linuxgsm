@@ -34,13 +34,4 @@ class linuxgsm::rust (
     timeout => 0,
   }
 
-  if $linuxgsm::use_firewalld {
-    firewalld_port { 'rustserver':
-      ensure   => present,
-      zone     => 'public',
-      port     => $port,
-      protocol => 'udp',
-    }
-  }
-
 }

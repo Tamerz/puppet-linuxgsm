@@ -31,14 +31,4 @@ class linuxgsm::minecraft (
     creates => "${install_dir}/mcserver",
     timeout => 0,
   }
-
-  if $linuxgsm::use_firewalld {
-    firewalld_port { 'minecraft':
-      ensure   => present,
-      zone     => 'public',
-      port     => $port,
-      protocol => 'tcp',
-    }
-  }
-
 }

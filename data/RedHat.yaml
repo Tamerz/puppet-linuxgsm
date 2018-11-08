@@ -1,7 +1,6 @@
 ---
 linuxgsm::packages:
   - 'mailx'
-linuxgsm::use_firewalld: true
 linuxgsm::minecraft::java_package: 'java-1.8.0-openjdk'
 linuxgsm::rust::packages:
   - 'libstdc++'
